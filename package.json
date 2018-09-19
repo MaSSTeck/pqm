@@ -1,0 +1,22 @@
+{
+  "name": "pqm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "next"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-boost": "^0.1.16",
+    "apollo-link": "^1.2.3",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.9.2",
+    "next": "^6.1.2",
+    "next-apollo": "^2.0.0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
+  }
+}
