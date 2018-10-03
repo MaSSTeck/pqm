@@ -3,18 +3,36 @@ import { RESTDataSource } from 'apollo-datasource-rest';
 export class QuestionAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = 'https://mvrp.herokuapp.com/api/'; //https://questions.aloc.ng/api/q?subject=chemistry
+    this.baseURL = 'https://questions.aloc.ng/api/'
   }
 
-  async getManyQuestions(subject, limit) {
-    return this.get('cars');
-  }
-
-  async getAQuestion(subject) {
+  async question(subject, type, year) {
     const result = await this.get('q', {
-        subject
+        subject: subject,
+        type: type,
+        year: year
     });
-
-    return result;
+    return result.data;
   }
+
+  async questions(limit, subject, type, year) {
+    //return questions by limit, maximum is 40
+    const result = await this.get(`q/${limit}`, {
+        subject: subject,
+        type: type,
+        year: year
+    });
+    return result.data;
+  }
+
+  async manyQuestions(subject, type, year) {
+    //returns 40 questions
+    const result = await this.get('m', {
+        subject: subject,
+        type: type,
+        year: year
+    });
+    return result.data;
+  }
+
 };

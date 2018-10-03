@@ -1,13 +1,12 @@
-import CarResolver from '../resolvers/car-resolver'
+import QuestionResolver from '../resolvers/question-resolver'
+
 export const resolvers = {
 
-    Car: {
-        vehicleStatus: ({ status }) => status,
-        yearOfManufacture: ({ productionYear }) => productionYear,
-    },
-
     Query: {
-        cars: CarResolver.car,
-        cars: CarResolver.cars,
+    
+        getQuestion: QuestionResolver.getQuestion,
+        getQuestions: QuestionResolver.getQuestions,
+        getManyQuestions: QuestionResolver.getManyQuestions,
+
     },
 }
