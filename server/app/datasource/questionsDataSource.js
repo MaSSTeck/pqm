@@ -1,9 +1,11 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
+import SERVER_ENV from '../config/server_env';
 
 export class QuestionAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = 'https://questions.aloc.ng/api/'
+    const serverConf = SERVER_ENV['development'];
+    this.baseURL = serverConf.BASE_API
   }
 
   async question(subject, type, year) {

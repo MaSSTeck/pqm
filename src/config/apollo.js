@@ -1,9 +1,11 @@
 import { withData } from 'next-apollo'
 import { HttpLink } from 'apollo-link-http'
+import APP_ENV from '../config/env'
 
+const appConfig = APP_ENV['development']; 
 const config = {
   link: new HttpLink({
-    uri: 'https://api.graph.cool/simple/v1/cixmkt2ul01q00122mksg82pn', // Server URL (must be absolute)
+    uri: appConfig.SERVER_URL, // Server URL (must be absolute)
     opts: {
       credentials: 'same-origin' // Additional fetch() options like `credentials` or `headers`
     }
