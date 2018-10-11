@@ -1,18 +1,9 @@
 import withData from '../src/config/apollo';
 import Link from "next/link";
-import Head from "next/head";
-import {
-    Container,
-    Divider,
-    Dropdown,
-    Grid,
-    Header,
-    Icon,
-    Image,
-    List,
-    Menu,
-    Segment
-  } from "semantic-ui-react";
+import { Container,Divider, Dropdown, Header,Icon, Image, List, Menu, Segment} from "semantic-ui-react";
+import HeaderPQM from '../src/layout/HeaderPQM';
+import FooterPQM from '../src/layout/FooterPQM';
+
   
   const Paragraph = () => (
     <p>
@@ -32,15 +23,9 @@ import {
 
 export default withData(props => (
     <div>
-    <Head>
-      <title>Post</title>
-      <link
-        rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
-      />
-    </Head>
+    <HeaderPQM titleText='Moderate'/>
     <Container text style={{ marginTop: "2em" }}>
-      <Header as="h1">Sticky Example</Header>
+      <Header as="h1">Moderate</Header>
       <p>
         This example shows how to use lazy loaded images, a sticky menu, and a simple text container
       </p>
@@ -108,58 +93,7 @@ export default withData(props => (
       <Paragraph />
     </Container>
 
-    <Segment
-      inverted
-      style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
-      vertical
-    >
-      <Container textAlign="center">
-        <Grid columns={4} divided stackable inverted>
-          <Grid.Row>
-            <Grid.Column>
-              <Header inverted as="h4" content="Group 1" />
-              <List link inverted>
-                <List.Item as="a">Link One</List.Item>
-                <List.Item as="a">Link Two</List.Item>
-                <List.Item as="a">Link Three</List.Item>
-                <List.Item as="a">Link Four</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column>
-              <Header inverted as="h4" content="Group 2" />
-              <List link inverted>
-                <List.Item as="a">Link One</List.Item>
-                <List.Item as="a">Link Two</List.Item>
-                <List.Item as="a">Link Three</List.Item>
-                <List.Item as="a">Link Four</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column>
-              <Header inverted as="h4" content="Group 3" />
-              <List link inverted>
-                <List.Item as="a">Link One</List.Item>
-                <List.Item as="a">Link Two</List.Item>
-                <List.Item as="a">Link Three</List.Item>
-                <List.Item as="a">Link Four</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column>
-              <Header inverted as="h4" content="Footer Header" />
-              <p>
-                Extra space for a call to action inside the footer that could help re-engage users.
-              </p>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-        <Divider inverted section />
-        <List horizontal inverted divided link>
-          <List.Item as="a" href="#">Site Map</List.Item>
-          <List.Item as="a" href="#">Contact Us</List.Item>
-          <List.Item as="a" href="#">Terms and Conditions</List.Item>
-          <List.Item as="a" href="#">Privacy Policy</List.Item>
-        </List>
-      </Container>
-    </Segment>
+    <FooterPQM/>
   </div>
 
 ))

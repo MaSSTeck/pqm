@@ -1,15 +1,20 @@
 import withData from '../src/config/apollo';
 import React, { Component } from "react";
 import Link from "next/link";
-// import Head from "next/head";
-import HeaderPQM from '../src/layout/HeaderPQM'
+import Head from "next/head";
+// import HeaderPQM from '../src/layout/HeaderPQM'
 import { Button, Container, Divider, Grid, Header, Menu, Segment,Visibility} from "semantic-ui-react";
 import FooterPQM from '../src/layout/FooterPQM';
 
 export default withData(props => (
   <div>
-  
-    <HeaderPQM/>
+    <Head>
+        <title>ALOC | PQM </title>
+        <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
+        />
+    </Head>
 
     <Visibility>
       <Segment
@@ -21,9 +26,9 @@ export default withData(props => (
         <Container>
           <Menu inverted pointing secondary size="large">
             <Menu.Item as="a" active>Home</Menu.Item>
-            <Menu.Item as="a">Work</Menu.Item>
-            <Menu.Item as="a">Company</Menu.Item>
-            <Menu.Item as="a">Careers</Menu.Item>
+            <Menu.Item as="a"><Link href="/quiz">Quiz</Link></Menu.Item>
+            <Menu.Item as="a"><Link href="/aloc-api">API</Link></Menu.Item>
+            <Menu.Item as="a"><Link href="/moderate">Moderate</Link></Menu.Item>
             <Menu.Item position="right">
               <Button as="a" inverted>Log in</Button>
               <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
