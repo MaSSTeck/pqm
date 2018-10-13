@@ -1,12 +1,12 @@
 import {PROD_API, DEV_API} from './constants'
 
-const APP_ENV = {
+const SERVER_ENV = {
 
     'production': {
-        'SERVER_URL': PROD_URL,
+        'SERVER_URL': PROD_API,
     },
     'development': {
-        'SERVER_URL': DEV_URL,
+        'SERVER_URL': DEV_API,
     }
 };
 
