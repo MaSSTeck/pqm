@@ -1,7 +1,6 @@
 import {PROD_API, DEV_API} from './constants'
 
-const SERVER_ENV = {
-
+const APP_ENV = {
     'production': {
         'SERVER_URL': PROD_API,
     },
@@ -10,4 +9,4 @@ const SERVER_ENV = {
     }
 };
 
-export default SERVER_ENV;
+export default APP_ENV;
