@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "next build",
-    "start": "next start -p ${PORT}"
+    "start": "next"
   },
   "keywords": [],
   "author": "",
@@ -22,3 +21,4 @@
     "semantic-ui-react": "^0.82.5"
   }
 }
+

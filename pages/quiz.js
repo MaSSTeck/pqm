@@ -1,9 +1,10 @@
 import withData from '../src/config/apollo';
-import { Container, Dropdown, Header,Icon, Menu} from "semantic-ui-react";
+import { Container, Button, Dropdown, Header,Icon, Menu} from "semantic-ui-react";
 import HeaderPQM from '../src/layout/HeaderPQM';
 import FooterPQM from '../src/layout/FooterPQM';
 import { GET_QUESTION } from '../src/graph/queries/questionQuery';
 import { Query } from 'react-apollo'
+import { ApolloConsumer } from "react-apollo";
 
   
   const Paragraph = () => (
@@ -23,14 +24,37 @@ import { Query } from 'react-apollo'
  
   const subject = 'english';
 
+
 export default withData(props => (
     <div>
         <HeaderPQM titleText='Take a Quiz'/>
         <Container text style={{ marginTop: "2em" }}>
-        <Header as="h1">Quiz</Header>
-        <p>
-            Start preparation for an examination by taking a simple test
-        </p>
+            <Header as="h1">Quiz</Header>
+            <p>
+                Start preparation for an examination by taking a simple test
+            </p>
+            <div>
+                <ApolloConsumer>
+                    {client =>  <Button primary >Primary</Button>}
+                </ApolloConsumer>
+                <Button secondary >Secondary</Button>
+            </div>
+            <Query query={GET_QUESTION} variables={{subject}}>
+                    {({ loading, error, data }) => {
+                    if (loading) return <div>Fetching</div>
+                    if (error) return <div>{ console.log(error.message)}</div>
+                    if (data) return <div>
+                                <h2>Question from API:</h2> 
+                                <h4>Refresh page to load fresh question</h4> 
+                                <p>Question: {data.getQuestion.question} </p>
+                                <p>A: {data.getQuestion.option.a} </p>
+                                <p>B: {data.getQuestion.option.b} </p>
+                                <p>C: {data.getQuestion.option.c} </p>
+                                <p>D: {data.getQuestion.option.d} </p>
+                                </div>
+    
+                    }}
+            </Query>
         </Container>
 
         <Menu
@@ -93,20 +117,6 @@ export default withData(props => (
             <Paragraph />
             <Paragraph />
         </Container>
-         <Query query={GET_QUESTION} variables={{subject}}>
-            {({ loading, error, data }) => {
-            if (loading) return <div>Fetching</div>
-            if (error) return <div>{ console.log(error.message)}</div>
-            if (data) return <div>{console.log(data.getQuestion.question)}</div>
-    
-
-    
-            return (
-            <div></div>
-            )
-            }}
-      </Query>
-
         <FooterPQM/>
   </div>
 
