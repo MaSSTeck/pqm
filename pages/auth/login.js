@@ -1,6 +1,7 @@
 import React from 'react'
 import withData from '../../src/config/apollo';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import HeaderPQM from '../../src/layout/HeaderPQM';
 // import 'semantic-ui-css/semantic.min.css';
 // import 'semantic-ui-css/semantic.min.css';
 
