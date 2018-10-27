@@ -30,7 +30,7 @@ export default withData(props => (
             <Menu.Item as="a"><Link href="/aloc-api">API</Link></Menu.Item>
             <Menu.Item as="a"><Link href="/moderate">Moderate</Link></Menu.Item>
             <Menu.Item position="right">
-              <Button as="a" inverted>Log in</Button>
+              <Button as="a" inverted href="/auth/login">Log in</Button>
               <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
                 Sign Up
               </Button>
