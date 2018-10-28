@@ -1,3 +1,5 @@
+
+import 'semantic-ui-css/semantic.min.css'
 import withData from '../src/config/apollo';
 import React, { Component } from "react";
 import Link from "next/link";
@@ -6,14 +8,11 @@ import Head from "next/head";
 import { Button, Container, Divider, Grid, Header, Menu, Segment,Visibility} from "semantic-ui-react";
 import FooterPQM from '../src/layout/FooterPQM';
 
+
 export default withData(props => (
   <div>
     <Head>
         <title>ALOC | PQM </title>
-        <link
-        rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
-        />
     </Head>
 
     <Visibility>
@@ -40,7 +39,7 @@ export default withData(props => (
         <Container text>
           <Header
             as="h1"
-            content="Imagine-a-PQM"
+            content="FastQuestion"
             inverted
             style={{
               fontSize: "4em",
@@ -51,12 +50,12 @@ export default withData(props => (
           />
           <Header
             as="h2"
-            content="Find Community Answers to Past Questions"
+            content="Community Answers to Past Questions"
             inverted
             style={{ fontSize: "1.7em", fontWeight: "normal" }}
           />
           <h1>
-            <Link href="/post">Take a Quiz</Link>
+            <Link href="/post">Ask | Learn | Vote</Link>
           </h1>
         </Container>
       </Segment>

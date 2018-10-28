@@ -1,7 +1,8 @@
 import React from 'react'
 import withData from '../../src/config/apollo';
+import 'semantic-ui-css/semantic.min.css'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
-import HeaderPQM from '../../src/layout/HeaderPQM';
+// import HeaderPQM from '../../src/layout/HeaderPQM';
 // import 'semantic-ui-css/semantic.min.css';
 // import 'semantic-ui-css/semantic.min.css';
 
@@ -10,7 +11,7 @@ import HeaderPQM from '../../src/layout/HeaderPQM';
     export default withData(props => (
 
   <div className='login-form'>
-      <HeaderPQM titleText='Moderate'/>
+      {/* <HeaderPQM titleText='Moderate'/> */}
 
     {/*
       Heads up! The styles below are necessary for the correct render of this example.
