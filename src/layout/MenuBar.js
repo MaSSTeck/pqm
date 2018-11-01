@@ -17,9 +17,8 @@ const MenuBar =  ()=> {
                 <Container>
                 <Menu inverted pointing secondary size="large">
                     <Menu.Item as="a" active><Link href="/">Home</Link></Menu.Item>
-                    <Menu.Item as="a"><Link href="/quiz">Quiz</Link></Menu.Item>
                     <Menu.Item as="a"><Link href="/aloc-api">API</Link></Menu.Item>
-                    <Menu.Item as="a"><Link href="/moderate">Moderate</Link></Menu.Item>
+                    <Menu.Item as="a"><Link href="/flagged">Flagged</Link></Menu.Item>
                     <Menu.Item position="right">
                     <Button as="a" inverted>Log in</Button>
                     <Button as="a" inverted style={{ marginLeft: "0.5em" }}>

@@ -4,33 +4,34 @@ import withData from '../src/config/apollo';
 import React, { Component } from "react";
 import Link from "next/link";
 import Head from "next/head";
-// import HeaderPQM from '../src/layout/HeaderPQM'
 import { Button, Container, Divider, Grid, Header, Menu, Segment,Visibility} from "semantic-ui-react";
+// import './../src/styles/index.css'
 import FooterPQM from '../src/layout/FooterPQM';
 
 
 export default withData(props => (
   <div>
     <Head>
-        <title>ALOC | PQM </title>
+        <title>Fast | Question </title>
     </Head>
 
     <Visibility>
       <Segment
         inverted
         textAlign="center"
-        style={{ minHeight: 700, padding: "1em 0em" }}
         vertical
+        style={{ minHeight:700, padding: "1em 0em" }}
+
       >
         <Container>
           <Menu inverted pointing secondary size="large">
             <Menu.Item as="a" active>Home</Menu.Item>
-            <Menu.Item as="a"><Link href="/quiz">Quiz</Link></Menu.Item>
+            {/* <Menu.Item as="a"><Link href="/quiz">Quiz</Link></Menu.Item> */}
             <Menu.Item as="a"><Link href="/aloc-api">API</Link></Menu.Item>
-            <Menu.Item as="a"><Link href="/moderate">Moderate</Link></Menu.Item>
+            <Menu.Item as="a"><Link href="/flagged">Flagged</Link></Menu.Item>
             <Menu.Item position="right">
               <Button as="a" inverted href="/auth/login">Log in</Button>
-              <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
+              <Button as="a" inverted href="/auth/signup" style={{ marginLeft: "0.5em" }}>
                 Sign Up
               </Button>
             </Menu.Item>
