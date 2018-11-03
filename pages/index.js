@@ -56,7 +56,7 @@ export default withData(props => (
             style={{ fontSize: "1.7em", fontWeight: "normal" }}
           />
           <h1>
-            <Link href="/post">Ask | Learn | Vote</Link>
+            <Link href="/flagged">Ask | Learn | Vote</Link>
           </h1>
         </Container>
       </Segment>

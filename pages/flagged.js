@@ -31,8 +31,8 @@ export default withData(props => (
             <Container text>
                 <QuestionList/>
                 <p>
-                  Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf
-                  ancestors, which would have been pack hunters with complex body language. These
+                  <Link href="/question">Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf
+                  ancestors, which would have been pack hunters with complex body language. These</Link>
                 </p>
                 <Label color='purple' horizontal>Mathematics</Label>
                 <Divider/>

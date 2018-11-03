@@ -1,4 +1,5 @@
 import { Container, Dropdown, Menu} from "semantic-ui-react";
+import Link from "next/link";
 
 const TopMenuBar = () => (
     <div>
@@ -9,15 +10,15 @@ const TopMenuBar = () => (
             borderRadius: 0,
             boxShadow: "none",
             marginTop: "2em",
+            marginBottom: "2em",
             transition: "box-shadow 0.5s ease, padding 0.5s ease"
         }}
         >
         <Container text>
-            <Menu.Item header>FastQ</Menu.Item>
+            {/* <Menu.Item header>FastQ</Menu.Item> */}
             <Menu.Item as="a">Subject</Menu.Item>
             <Menu.Item as="a">Quiz</Menu.Item>
-            <Menu.Item as="a">Members</Menu.Item>
-
+            <Menu.Item as="a" href="/ask-question">Ask</Menu.Item>
 
             <Menu.Menu position="right">
             <Dropdown text="Tags" pointing className="link item">

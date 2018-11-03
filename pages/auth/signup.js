@@ -1,7 +1,7 @@
 import React from 'react'
 import withData from '../../src/config/apollo';
 import 'semantic-ui-css/semantic.min.css'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Icon, Message, Segment } from 'semantic-ui-react'
 // import HeaderPQM from '../../src/layout/HeaderPQM';
 // import 'semantic-ui-css/semantic.min.css';
 // import 'semantic-ui-css/semantic.min.css';
@@ -11,13 +11,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
     export default withData(props => (
 
   <div className='login-form'>
-      {/* <HeaderPQM titleText='Moderate'/> */}
-
-    {/*
-      Heads up! The styles below are necessary for the correct render of this example.
-      You can do same with CSS, the main idea is that all the elements up to the `Grid`
-      below must have a height of 100%.
-    */}
+      
     <style>{`
       body > div,
       body > div > div,
@@ -28,16 +22,25 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
     <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' /> Create account
+          <a href="/"><Icon name='settings' /> Create account</a>
         </Header>
         <Form size='large'>
           <Segment stacked>
-            <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+            <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' />
+            <Form.Input fluid icon='mail' iconPosition='left' placeholder='E-mail address' />
+
             <Form.Input
               fluid
               icon='lock'
               iconPosition='left'
               placeholder='Password'
+              type='password'
+            />
+            <Form.Input
+              fluid
+              icon='lock'
+              iconPosition='left'
+              placeholder='Confirm Password'
               type='password'
             />
 
@@ -47,7 +50,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Log In</a>
+          New to us? <a href='/auth/login'>Log In</a>
         </Message>
       </Grid.Column>
     </Grid>

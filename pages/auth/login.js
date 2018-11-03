@@ -1,7 +1,7 @@
 import React from 'react'
 import withData from '../../src/config/apollo';
 import 'semantic-ui-css/semantic.min.css'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Icon, Message, Segment } from 'semantic-ui-react'
 // import HeaderPQM from '../../src/layout/HeaderPQM';
 // import 'semantic-ui-css/semantic.min.css';
 // import 'semantic-ui-css/semantic.min.css';
@@ -28,7 +28,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
     <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' /> Log-in to your account
+        <a href="/"><Icon name='settings' /> Log-in to your account</a>
         </Header>
         <Form size='large'>
           <Segment stacked>
@@ -47,7 +47,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          Not new to us? <a href='/auth/signup'>Sign Up</a>
         </Message>
       </Grid.Column>
     </Grid>

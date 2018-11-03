@@ -1,5 +1,5 @@
 import { List, Divider} from "semantic-ui-react";
-
+import Link from "next/link";
 
 const LeftSideMenu = () => (
     <div>
@@ -9,19 +9,27 @@ const LeftSideMenu = () => (
                 <List.Content>Home</List.Content>
             </List.Item>
             <List.Item>
-                <List.Icon name='users' />
-                <List.Content>Members</List.Content>
+                <List.Icon name='hand paper' />
+                <List.Content><Link href="/ask-question">Ask Question</Link></List.Content>
+            </List.Item>
+            <List.Item>
+                <List.Icon name='flag' />
+                <List.Content><Link href="/flagged">Flagged</Link></List.Content>
+            </List.Item>
+            <List.Item>
+                <List.Icon name='user' />
+                <List.Content><Link href="/public-profile">Profile</Link></List.Content>
             </List.Item>
             <List.Item>
                 <List.Icon name='student' />
                 <List.Content>
-                <a href='mailto:jack@semantic-ui.com'>Scholarship</a>
+                <a href='#'>Scholarship</a>
                 </List.Content>
             </List.Item>
             <List.Item>
                 <List.Icon name='game' />
                 <List.Content>
-                <a href='http://www.semantic-ui.com'>ALOC Games</a>
+                <a href='https://aloc.ng'>ALOC Games</a>
                 </List.Content>
             </List.Item>
             </List>
@@ -31,7 +39,7 @@ const LeftSideMenu = () => (
             <List.Item>
                 <List.Icon name='caret right' />
                 <List.Content>
-                    <List.Header>Subject</List.Header>
+                    <List.Header><a href="/tags">Subject</a></List.Header>
                 </List.Content>
             </List.Item>
             
