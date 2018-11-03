@@ -1,7 +1,7 @@
 import withData from '../src/config/apollo';
 import { Container, Button, Dropdown, Header,Icon, Menu} from "semantic-ui-react";
-import HeaderPQM from '../src/layout/HeaderPQM';
-import FooterPQM from '../src/layout/FooterPQM';
+import HeaderFastQ from '../src/layout/HeaderFastQ';
+import FooterFastQ from '../src/layout/FooterFAst';
 import { GET_QUESTION } from '../src/graph/queries/questionQuery';
 import { Query } from 'react-apollo'
 import { ApolloConsumer } from "react-apollo";
@@ -27,7 +27,7 @@ import { ApolloConsumer } from "react-apollo";
 
 export default withData(props => (
     <div>
-        <HeaderPQM titleText='Take a Quiz'/>
+        <HeaderFastQ titleText='Take a Quiz'/>
         <Container text style={{ marginTop: "2em" }}>
             <Header as="h1">Quiz</Header>
             <p>
@@ -117,7 +117,7 @@ export default withData(props => (
             <Paragraph />
             <Paragraph />
         </Container>
-        <FooterPQM/>
+        <FooterFastQ/>
   </div>
 
 ))

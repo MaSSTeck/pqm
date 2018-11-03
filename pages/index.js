@@ -6,7 +6,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { Button, Container, Divider, Grid, Header, Menu, Segment,Visibility} from "semantic-ui-react";
 // import './../src/styles/index.css'
-import FooterPQM from '../src/layout/FooterPQM';
+import FooterPQM from '../src/layout/FooterFastQ';
 
 
 export default withData(props => (

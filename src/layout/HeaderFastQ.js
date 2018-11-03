@@ -3,8 +3,7 @@ import Head from "next/head";
 import MenuBar from './MenuBar'
 import 'semantic-ui-css/semantic.min.css'
 
-
-const HeaderPQM =  (props)=> {
+const HeaderFastQ =  (props)=> {
     const {titleText} = props;
 
     return(
@@ -17,4 +16,4 @@ const HeaderPQM =  (props)=> {
     );
 }
 
-export default HeaderPQM;
+export default HeaderFastQ;

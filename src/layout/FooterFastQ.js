@@ -1,6 +1,6 @@
 import { Container, Grid, Header, List, Segment, Divider} from "semantic-ui-react";
 
-const FooterPQM =  ()=> {
+const FooterFastQ =  ()=> {
 
     return(
         <div>
@@ -47,4 +47,4 @@ const FooterPQM =  ()=> {
     );
 }
 
-export default FooterPQM;
+export default FooterFastQ;

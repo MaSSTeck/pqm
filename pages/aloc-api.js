@@ -1,7 +1,7 @@
 import withData from '../src/config/apollo';
 import { Container,Divider, Dropdown, Button, Visibility, Grid, Header,Icon, Image, List, Menu, Segment} from "semantic-ui-react";
-import HeaderPQM from '../src/layout/HeaderPQM';
-import FooterPQM from '../src/layout/FooterPQM';
+import HeaderFastQ from '../src/layout/HeaderFastQ';
+import FooterFastQ from '../src/layout/FooterFastQ';
 
   const Paragraph = () => (
     <p>
@@ -21,7 +21,7 @@ import FooterPQM from '../src/layout/FooterPQM';
 
 export default withData(props => (
     <div>
-    <HeaderPQM titleText='Questions API'/>
+    <HeaderFastQ titleText='Questions API'/>
     <Container text style={{ marginTop: "2em" }}>
       <Header as="h1">API Endpoints</Header>
       <p>
@@ -91,7 +91,7 @@ export default withData(props => (
       <Paragraph />
     </Container>
 
-    <FooterPQM/>
+    <FooterFastQ/>
   </div>
 
 ))
