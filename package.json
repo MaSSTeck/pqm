@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "next build",
     "start": "next start -p $PORT"
   },
   "keywords": [],
