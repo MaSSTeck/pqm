@@ -6,7 +6,6 @@
   "scripts": {
     "start": "next start -p $PORT"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
