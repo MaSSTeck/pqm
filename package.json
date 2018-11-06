@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "next build",
-    "start": "next -p $PORT"
+    "start": "next"
   },
   "keywords": [],
   "author": "",
