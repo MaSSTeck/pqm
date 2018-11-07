@@ -1,7 +1,7 @@
 import withData from '../src/config/apollo';
 import { Container, Button, Dropdown, Header,Icon, Menu} from "semantic-ui-react";
 import HeaderFastQ from '../src/layout/HeaderFastQ';
-import FooterFastQ from '../src/layout/FooterFAst';
+import FooterFastQ from '../src/layout/FooterFastQ';
 import { GET_QUESTION } from '../src/graph/queries/questionQuery';
 import { Query } from 'react-apollo'
 import { ApolloConsumer } from "react-apollo";
