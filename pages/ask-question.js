@@ -20,7 +20,7 @@ export default withData(props => (
     <Container text style={{ marginTop: "2em" }}>
       <Header as="h1">Questions</Header>
       <p>
-        Students are confuse about proper answer to these questions. Do you want to give solution?
+       Are you confuse about a question ask FastQuestion community?
       </p>
     </Container>
     <TopMenuBar/>
@@ -32,7 +32,7 @@ export default withData(props => (
           <Grid.Column width={3} only='large screen'>
              <LeftSideMenu/>
           </Grid.Column>
-          <Grid.Column stretched width={11} >
+          <Grid.Column mobile={16} tablet={16} computer={11} >
             <Container text>
                 <Form>
                     <Form.Field

@@ -1,69 +1,51 @@
-
-import 'semantic-ui-css/semantic.min.css'
+import PropTypes from 'prop-types'
 import withData from '../src/config/apollo';
-import React, { Component } from "react";
-import Link from "next/link";
 import Head from "next/head";
-import { Button, Container, Divider, Grid, Header, Menu, Segment,Visibility} from "semantic-ui-react";
-// import './../src/styles/index.css'
-import FooterPQM from '../src/layout/FooterFastQ';
+import 'semantic-ui-css/semantic.min.css'
+import HomepageHeading from '../src/components/home/HomepageHeading'
+import DesktopContainer from '../src/components/home/DesktopContainer'
+import MobileContainer from '../src/components/home/MobileContainer'
+import FooterFastQ from '../src/layout/FooterFastQ';
 
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Segment
+} from 'semantic-ui-react'
 
-export default withData(props => (
+HomepageHeading.propTypes = {
+  mobile: PropTypes.bool,
+}
+
+DesktopContainer.propTypes = {
+  children: PropTypes.node,
+}
+
+MobileContainer.propTypes = {
+  children: PropTypes.node,
+}
+
+const ResponsiveContainer = ({ children }) => (
   <div>
     <Head>
-      
-        <title>Fast | Question </title>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta> */}
-
+      <title>Fast | Question </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"></meta>
     </Head>
+    <DesktopContainer>{children}</DesktopContainer>
+    <MobileContainer>{children}</MobileContainer>
+  </div>
+)
 
-    <Visibility>
-      <Segment
-        inverted
-        textAlign="center"
-        vertical
-        style={{ minHeight:700, padding: "1em 0em" }}
+ResponsiveContainer.propTypes = {
+  children: PropTypes.node,
+}
 
-      >
-        <Container>
-          <Menu inverted pointing secondary size="large">
-            <Menu.Item as="a" active>Home</Menu.Item>
-            {/* <Menu.Item as="a"><Link href="/quiz">Quiz</Link></Menu.Item> */}
-            <Menu.Item as="a"><Link href="/aloc-api">API</Link></Menu.Item>
-            <Menu.Item as="a"><Link href="/flagged">Flagged</Link></Menu.Item>
-            <Menu.Item position="right">
-              <Button as="a" inverted href="/auth/login">Log in</Button>
-              <Button as="a" inverted href="/auth/signup" style={{ marginLeft: "0.5em" }}>
-                Sign Up
-              </Button>
-            </Menu.Item>
-          </Menu>
-        </Container>
-        <Container text>
-          <Header
-            as="h1"
-            content="FastQuestion"
-            inverted
-            style={{
-              fontSize: "4em",
-              fontWeight: "normal",
-              marginBottom: 0,
-              marginTop: "3em"
-            }}
-          />
-          <Header
-            as="h2"
-            content="Community Answers to Past Questions"
-            inverted
-            style={{ fontSize: "1.7em", fontWeight: "normal" }}
-          />
-          <h1>
-            <Link href="/flagged">Ask | Learn | Vote</Link>
-          </h1>
-        </Container>
-      </Segment>
-    </Visibility>
+export default withData(props => (
+
+  <ResponsiveContainer>
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>
@@ -138,7 +120,6 @@ export default withData(props => (
         <Button as="a" size="large">Please, take me there</Button>
       </Container>
     </Segment>
-
-    <FooterPQM/>
-  </div>
+    <FooterFastQ/>
+  </ResponsiveContainer>
 ))

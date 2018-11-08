@@ -27,7 +27,7 @@ export default withData(props => (
           <Grid.Column width={3} only='large screen'>
              <LeftSideMenu/>
           </Grid.Column>
-          <Grid.Column stretched width={10} >
+          <Grid.Column mobile={16} tablet={16} computer={10}>
             <Container text>
                 <QuestionList/>
                 <p>

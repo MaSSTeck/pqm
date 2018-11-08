@@ -17,10 +17,10 @@ const MenuBar =  ()=> {
                 <Container>
                 <Menu inverted pointing secondary size="large">
                     <Menu.Item as="a" active href="/">Home</Menu.Item>
-                    <Menu.Item as="a" href="/aloc-api">API</Menu.Item>
+                    {/* <Menu.Item as="a" href="/aloc-api">API</Menu.Item> */}
                     <Menu.Item as="a" href="/flagged">Flagged</Menu.Item>
                     <Menu.Item position="right">
-                    <Button as="a" inverted href="/auth/login">Log in</Button>
+                    {/* <Button as="a" inverted href="/auth/login">Log in</Button> */}
                     <Button as="a" inverted href="/auth/signup" style={{ marginLeft: "0.5em" }}>
                         Sign Up
                     </Button>

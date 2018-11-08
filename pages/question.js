@@ -26,7 +26,7 @@ export default withData(props => (
           <Grid.Column width={3} only='large screen'>
              <LeftSideMenu/>
           </Grid.Column>
-          <Grid.Column stretched width={10} >
+          <Grid.Column mobile={16} tablet={16} computer={10} >
             <Container text>
                 <Label color="blue"><Icon name='caret up' /> 23</Label>
                 <Label color="red"><Icon name='caret down' /> 2</Label>
