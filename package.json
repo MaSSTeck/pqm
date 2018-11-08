@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "start": "next"
+    "start": "next start -p 8000"
   },
   "keywords": [],
   "author": "",
