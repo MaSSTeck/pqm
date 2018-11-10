@@ -9,7 +9,7 @@ const HeaderFastQ =  (props)=> {
     return(
         <div>
             <Head>
-                <title>FQ | {titleText}</title>
+                <title>FastQ | {titleText}</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"></meta>
             </Head>
             <MenuBar/>

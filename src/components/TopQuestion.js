@@ -1,14 +1,17 @@
+import React, { Component } from "react";
 import { Divider, Icon, Image,Label} from "semantic-ui-react";
 import Link from "next/link";
 
 
-const QuestionList = () => (
+const TopQuestion = (props) => {
+  const {question,subject, subjectColor} = props;
+  
+  return(
     <div>
       <p>
-      <Link href="/question">Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf
-        ancestors, which would have been pack hunters with complex body language. These</Link>
+      <Link ><a href="/question">{question}</a></Link>
       </p>
-      <Label color='red' horizontal>English</Label>  
+      <Label color={subjectColor} horizontal>{subject}</Label>  
       <Label horizontal><Icon name='caret up' /> 23</Label>
       <Label horizontal><Icon name='caret down' /> 2</Label>
       <Label horizontal><Icon name='answers' /> 3</Label>
@@ -20,7 +23,8 @@ const QuestionList = () => (
       </div>
       <Divider/>  
     </div>
-  );
+  )
+}
 
-export default QuestionList;
+export default TopQuestion;
   

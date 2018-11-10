@@ -5,7 +5,7 @@ import FooterFastQ from '../src/layout/FooterFastQ';
 import { GET_QUESTION } from '../src/graph/queries/questionQuery';
 import { Query } from 'react-apollo'
 import { ApolloConsumer } from "react-apollo";
-
+import ReactHtmlParser from 'react-html-parser';
   
   const Paragraph = () => (
     <p>
@@ -46,7 +46,7 @@ export default withData(props => (
                     if (data) return <div>
                                 <h2>Question from API:</h2> 
                                 <h4>Refresh page to load fresh question</h4> 
-                                <p>Question: {data.getQuestion.question} </p>
+                                <p>Question: {ReactHtmlParser(data.getQuestion.question)} </p>
                                 <p>A: {data.getQuestion.option.a} </p>
                                 <p>B: {data.getQuestion.option.b} </p>
                                 <p>C: {data.getQuestion.option.c} </p>

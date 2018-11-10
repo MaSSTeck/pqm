@@ -2,13 +2,13 @@ import withData from '../src/config/apollo';
 import { Container,Divider, Header,Label,Form, Grid, Input, Image,Icon, TextArea, Button} from "semantic-ui-react";
 import HeaderFastQ from '../src/layout/HeaderFastQ';
 import FooterFastQ from '../src/layout/FooterFastQ';
-import QuestionList from '../src/components/QuestionList'
 import BestAnswers from '../src/components/BestAnswers'
 import HotQuestions from '../src/components/HotQuestions'
 import LeftSideMenu from '../src/components/LeftSideMenu'
 import TopMenuBar from '../src/components/TopMenuBar'
 
-export default withData(props => (
+export default withData(props) => {
+    
     <div>
     <HeaderFastQ titleText='Flagged'/>
     <Container text style={{ marginTop: "2em" }}>
