@@ -47,7 +47,7 @@ export default withData(props => (
                
                 <Query query={GET_TOP_QUESTIONS}>
                     {({ loading, error, data }) => {
-                      if (loading) return <div>Fetching</div>
+                      if (loading) return <div>Fetching...</div>
                       if (error) return <div>{error.message}</div>
                       if (data) return <div>{loadQuestion(data.getTopQuestions)}</div>
                     }}

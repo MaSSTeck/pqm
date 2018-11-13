@@ -9,12 +9,13 @@ const TopQuestion = (props) => {
   return(
     <div>
       <p>
-      <Link ><a href="/question">{question}</a></Link>
+      {/* <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}> */}
+      <Link as={`/question/sdsdsdsdsd`} href="/question"><a>{question}</a></Link>
       </p>
       <Label color={subjectColor} horizontal>{subject}</Label>  
       <Label horizontal><Icon name='caret up' /> 23</Label>
       <Label horizontal><Icon name='caret down' /> 2</Label>
-      <Label horizontal><Icon name='answers' /> 3</Label>
+      <Label horizontal><Icon name='comments' /> 3</Label>
 
       <div align="right">
         <Label pointing='right'>posted 3wks ago</Label>
