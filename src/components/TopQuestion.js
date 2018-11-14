@@ -10,7 +10,7 @@ const TopQuestion = (props) => {
     <div>
       <p>
       {/* <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}> */}
-      <Link as={`/question/sdsdsdsdsd`} href="/question"><a>{question}</a></Link>
+      <Link as={`/question/sdsdsd dsdsd`} href="/question"><a>{question}</a></Link>
       </p>
       <Label color={subjectColor} horizontal>{subject}</Label>  
       <Label horizontal><Icon name='caret up' /> 23</Label>

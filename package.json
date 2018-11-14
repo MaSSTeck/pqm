@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "next build",
-    "start": "next"
+    "dev": "next"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +13,7 @@
     "@zeit/next-css": "^1.0.1",
     "apollo-boost": "^0.1.16",
     "apollo-link": "^1.2.3",
+    "express": "^4.16.4",
     "file-loader": "^2.0.0",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
