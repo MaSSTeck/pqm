@@ -6,6 +6,7 @@ import BestAnswers from '../src/components/BestAnswers'
 import HotQuestions from '../src/components/HotQuestions'
 import LeftSideMenu from '../src/components/LeftSideMenu'
 import TopMenuBar from '../src/components/TopMenuBar'
+import {withRouter} from 'next/router'
 
 export default withData(props => {
     
@@ -17,9 +18,10 @@ export default withData(props => {
         <p>
             Students are confuse about proper answer to these questions. Do you want to give solution?
         </p>
+        <p>We got here:{props.url.query.subject} {console.log(props.url.query.id)}</p>
         </Container>
         <TopMenuBar/>
-        
+    
 
         <Container >
         <Grid divided='vertically'>

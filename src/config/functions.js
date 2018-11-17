@@ -2,12 +2,12 @@ export function UppperCaseFirst(str){
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export function FormatStringAsURL(str, questionId){
+export function FormatStringAsURL(str){
     var  strSmallCase = str.charAt(0).toLowerCase() + str.slice(1);
-    var truncatedStr =  strSmallCase.split(" ").splice(0,12).join(" ");
+    var truncatedStr =  strSmallCase.split(" ").splice(0,25).join(" ");
     var rmSpecialSymbols =  truncatedStr.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
     var urlString = rmSpecialSymbols.replace(/[^a-zA-Z0-9]/g, '-');
-    urlString = "question/"+questionId+"/"+urlString;
+    // urlString = questionId+"-"+urlString;
     return urlString;
 }
 

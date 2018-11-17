@@ -11,17 +11,18 @@ import TopMenuBar from '../src/components/TopMenuBar'
 import { GET_TOP_QUESTIONS } from '../src/graph/queries/questionsTop';
 import { Query } from 'react-apollo'
 import ReactHtmlParser from 'react-html-parser';
-import { UppperCaseFirst, Color4Subject,FormatStringAsURL } from '../src/config/functions'
+import { UppperCaseFirst, Color4Subject, FormatStringAsURL } from '../src/config/functions'
 
 const loadQuestion = (topQuestion) =>{
 
 
   return topQuestion.map(questions =>{
-    return <TopQuestion 
+    return <TopQuestion
+            questionId={ReactHtmlParser(questions.id)} 
             question={ReactHtmlParser(questions.question)}
             subject={UppperCaseFirst(questions.subject)}
             subjectColor={Color4Subject(questions.subject)}
-            maskURL = {FormatStringAsURL(questions.question,questions.id )}/>
+            maskURL = {FormatStringAsURL(questions.question)}/>
     }
   );
 }
@@ -36,7 +37,7 @@ export default withData(props => (
       </p>
     </Container>
     <TopMenuBar/>
-    
+  
 
     <Container >
       <Grid divided='vertically'>
