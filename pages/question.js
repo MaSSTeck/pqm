@@ -6,19 +6,42 @@ import BestAnswers from '../src/components/BestAnswers'
 import HotQuestions from '../src/components/HotQuestions'
 import LeftSideMenu from '../src/components/LeftSideMenu'
 import TopMenuBar from '../src/components/TopMenuBar'
-import {withRouter} from 'next/router'
+import { GET_QUESTION_BY_ID } from '../src/graph/queries/questionById';
+import { Query } from 'react-apollo'
+import ReactHtmlParser from 'react-html-parser';
+import { Color4Subject } from '../src/config/functions'
 
+
+const loadQuestion = (data, subject) =>{
+
+      return <div> 
+            <p>{ReactHtmlParser(data.question)} </p>
+            <p>A| {data.option.a} </p>
+            <p>B| {data.option.b} </p>
+            <p>C| {data.option.c} </p>
+            <p>D| {data.option.d} </p>
+
+            <Label color={Color4Subject(subject)} horizontal>{subject}</Label> 
+            <Label color='green' horizontal>Ans | {data.answer.toUpperCase()}</Label> 
+            <Label horizontal><Icon name='comments' /> 3</Label>
+        </div>
+   
+  }
+
+  
 export default withData(props => {
     
+    var  questionId = parseInt(props.url.query.id);
+    const subject = props.url.query.subject;
+
     return(
         <div>
         <HeaderFastQ titleText='Flagged'/>
         <Container text style={{ marginTop: "2em" }}>
-        <Header as="h1">Questions</Header>
-        <p>
-            Students are confuse about proper answer to these questions. Do you want to give solution?
-        </p>
-        <p>We got here:{props.url.query.subject} {console.log(props.url.query.id)}</p>
+            <Header as="h1">Questions</Header>
+            <p>
+                Students are confuse about proper answer to these questions. Do you want to give solution?
+            </p>
         </Container>
         <TopMenuBar/>
     
@@ -34,20 +57,14 @@ export default withData(props => {
                     <Label color="blue"><Icon name='caret up' /> 23</Label>
                     <Label color="red"><Icon name='caret down' /> 2</Label>
                     <Header as="h2">Something is wrong with this question</Header>
-                    <p>
-                    Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf
-                        ancestors, which would have been pack hunters with complex body language. these
-                    </p>
-                
-                    <Divider/>  
-                    <p>a| Students are confuse about proper answer to these questions.</p>
-                    <p>b| Students are confuse about proper answer to these questions.</p>
-                    <p>c| Students are confuse about proper answer to these questions.</p>
-                    <p>d| Students are confuse about proper answer to these questions.</p>
-
-                    <Label color='red' horizontal>English</Label> 
-                    <Label color='green' horizontal>Ans | A</Label> 
-                    <Label horizontal><Icon name='comments' /> 3</Label>
+                    
+                    <Query query={GET_QUESTION_BY_ID} variables={{questionId, subject}}>
+                        {({ loading, error, data }) => {
+                        if (loading) return <div>Fetching...</div>
+                        if (error) return <div>{error.message}</div>
+                        if (data) return <div>{loadQuestion(data.getQuestionById, subject)}</div>
+                        }}
+                    </Query> 
 
                     <div align="right">
                         <Label pointing='right'>posted 3wks ago</Label>
