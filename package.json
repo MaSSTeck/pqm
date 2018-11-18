@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "dev": "node server.js",
+    "start": " next NODE_ENV=production node server.js"
   },
-
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
