@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "dev": "node server.js",
-    "start": "node server.js"
+    "start": "next -p $PORT"
   },
   
   "keywords": [],
