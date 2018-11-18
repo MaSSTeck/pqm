@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
