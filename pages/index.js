@@ -28,8 +28,9 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const ResponsiveContainer = ({ children }) => (
-  <div>
+const ResponsiveContainer = ({ children }) => {
+  testing()
+  return <div>
     <Head>
       <title>Fast | Question </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"></meta>
@@ -37,8 +38,35 @@ const ResponsiveContainer = ({ children }) => (
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>
   </div>
-)
 
+  
+}
+const testing = () =>{
+
+  var details = {
+    email: "a@g.com",
+    password: 'password'
+  }
+
+var formBody = [];
+for (var property in details) {
+  var encodedKey = encodeURIComponent(property);
+  var encodedValue = encodeURIComponent(details[property]);
+  formBody.push(encodedKey + "=" + encodedValue);
+}
+formBody = formBody.join("&");
+
+
+
+  fetch('http://138.68.159.246:9000/tremendoc/api/account/authenticate', {
+  method: 'post',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }, 
+  body: formBody
+}).then(res=>res.json())
+  .then(res => console.log(res));
+}
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
