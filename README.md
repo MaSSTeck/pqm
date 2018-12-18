@@ -1,12 +1,18 @@
 
-## Yep!
-https://
+## FastQ
+Simple Next.js project for Past Questions Manager.
 
 ## How to use
-Install it and run. Please note, project still in setup mode
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
+Please note, project is in development mode
+
+### API Server
+https://github.com/MaSSTeck/pqm-api
+
+### Demo app
+https://pqm.herokuapp.com/
 
