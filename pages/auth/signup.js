@@ -13,26 +13,35 @@ export default withData(props => {
     constructor(props) {
       super(props);
       this.state = {email:"", password: "", username:"",gender:"", error:false, errorMessage:""};
+      this.verifyEntries = this.verifyEntries.bind(this);
+
     }
 
     saveUserToken = async data => {
       localStorage.setItem('auth-token', data.token)
+      localStorage.setItem('auth-id', data.user.id)
       Router.push('/flagged')
     }
-
+    // doSubmit = (doAddGroup, obj, e) => {
+    verifyEntries = (mutation) =>{
+      console.log('sdsdsd');
+      mutation;
+    }
    
     handleDropDown = (name, event) => {
         let value="Male";
   
         if (event.target.value !== undefined) {
           value = event.target.value;
+          console.log('got if',value)
+
         } else {
           value = event.target.textContent;
+          console.log('got else',value)
         }
-  
-        let newExtraInfo = Object.assign(this.state.extraInfo, { [name]: value })
-  
-        this.setState({ extraInfo: newExtraInfo});
+        console.log(value)
+        //let newExtraInfo = Object.assign(this.state.extraInfo, { name: value })
+        this.setState({ gender: value});
       }
     
     genderOptions = [ { key: 'Male', value: 'Male', text: 'Male' }, 
@@ -55,13 +64,6 @@ export default withData(props => {
                      onChange={e => this.setState({ email: e.target.value })}
                      type="text" value={this.state.email}  />
 
-                  {/* <Form.Input fluid icon='group' iconPosition='left' placeholder='Gender' type='text'
-                     onChange={e => this.setState({ gender: e.target.value })}
-                    type="text" value={this.state.gender} /> */}
-
-                  {/* <Form.Input fluid icon='group' iconPosition='left' placeholder='Gender' type='text'
-                     onChange={e => this.setState({ gender: e.target.value })}
-                    type="text" value={this.state.gender} /> */}
 
                   <Form.Dropdown fluid placeholder='Gender' search selection options={this.genderOptions} 
                        name='gender'
@@ -85,6 +87,7 @@ export default withData(props => {
                        }}  >
 
                       {mutation => (
+                        // <Button color='teal' fluid size='large' onClick={this.verifyEntries.bind(this, mutation)}>
                         <Button color='teal' fluid size='large' onClick={mutation}>
                             Sign up
                         </Button>

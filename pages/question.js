@@ -10,6 +10,9 @@ import { GET_QUESTION_BY_ID } from '../src/graph/queries/questionById';
 import { Query } from 'react-apollo'
 import ReactHtmlParser from 'react-html-parser';
 import { Color4Subject } from '../src/config/functions'
+import { Mutation } from 'react-apollo'
+import CommentForm from '../src/components/question/CommentForm'
+import AnswerList from '../src/components/question/AnswerList'
 
 
 const loadQuestion = (data, subject) =>{
@@ -30,8 +33,8 @@ const loadQuestion = (data, subject) =>{
 
   
 export default withData(props => {
-    
-    var  questionId = parseInt(props.url.query.id);
+
+    const  questionId = parseInt(props.url.query.id);
     const subject = props.url.query.subject;
 
     return(
@@ -74,35 +77,9 @@ export default withData(props => {
 
                     <Divider hidden />
                     <Divider hidden />
-                    <Header as="h4">Answers</Header>
-                    <Divider/>
-                    <p>
-                    Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf
-                        ancestors, which would have been pack hunters with complex body language. these
-                    </p>
-                    <div>
-                        <Label horizontal color="blue"><Icon name='caret up' /> 1</Label>
-                        <Label horizontal color="red"><Icon name='caret down' /> 0</Label>
-                        <div align="right">
-                            <Label pointing='right'>posted 1wk ago</Label>
-                            <Image src='https://react.semantic-ui.com/images/avatar/small/daniel.jpg' avatar />
-                            <span>Joy</span>
-                        </div>
-                    </div>
-                    <Form>
-                        <Form.Field
-                        id='form-textarea-control-opinion'
-                        control={TextArea}
-                        label='Your answer'
-                        placeholder='This is what I think'
-                        />
-                        <Form.Field
-                        id='form-button-control-public'
-                        control={Button}
-                        content='Submit'
-                        label=''
-                        />
-                    </Form>
+                    <AnswerList questionId={questionId} subject={subject}/>
+                    
+                    <CommentForm questionId={questionId} subject={subject}/>
                     <Divider hidden />
                     <Divider hidden />
                 </Container>

@@ -79,3 +79,25 @@ export function Color4Subject(subject){
     }
     return subjColor;
 }
+
+export function FormatDate(datetime) {
+    var theEvent = new Date(datetime);
+    var now = new Date();
+    var timeElapsed = (now - theEvent) / 1000;
+
+    var seconds    = timeElapsed ;
+    var minutes    = Math.floor(timeElapsed / 60 );
+    var hours      = Math.floor(timeElapsed / 3600);
+    var days       = Math.floor(timeElapsed / 86400 );
+    var weeks      = Math.floor(timeElapsed / 604800);
+    var months     = Math.floor(timeElapsed / 2600640 );
+    var years      = Math.floor(timeElapsed / 31207680 );
+    
+    if (seconds <= 60) {return "Just now";}
+    if (minutes <= 60) {if(minutes ==1){return "A minute ago"}else{return minutes+" mins ago";}}
+    if (hours <= 24) {if(hours == 1){return "An hour ago"}else{return hours+ " hrs ago";}}
+    if (days <= 7) {if(days == 1){return "A day ago"}else{return days+ " days ago";}}
+    if (weeks <= 4.3) {if(weeks == 1){return "A wk ago"}else{return weeks+ " wks ago";}}
+    if (months <= 12) {if(months == 1){return "A mnth ago"}else{return months+ " mnths ago";}}
+    else {if(years == 1){return "A year ago"}else{return years+ " years ago";}}
+}

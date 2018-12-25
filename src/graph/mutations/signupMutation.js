@@ -12,6 +12,8 @@ export const SIGNUP = gql`
         gender: $gender
         email: $email
         password: $password
-        ) {token}
+        ) {token, 
+          user{id}
+        }
       }
 `;
