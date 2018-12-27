@@ -7,12 +7,14 @@ import HotQuestions from '../src/components/HotQuestions'
 import LeftSideMenu from '../src/components/LeftSideMenu'
 import TopMenuBar from '../src/components/TopMenuBar'
 import { GET_QUESTION_BY_ID } from '../src/graph/queries/questionById';
+import { GET_QUESTION_VOTES } from '../src/graph/queries/getQuestionVoteQuery';
 import { Query } from 'react-apollo'
 import ReactHtmlParser from 'react-html-parser';
 import { Color4Subject } from '../src/config/functions'
 import { Mutation } from 'react-apollo'
 import CommentForm from '../src/components/question/CommentForm'
 import AnswerList from '../src/components/question/AnswerList'
+import QuestionVote from '../src/components/question/QuestionVote'
 
 
 const loadQuestion = (data, subject) =>{
@@ -28,7 +30,6 @@ const loadQuestion = (data, subject) =>{
             <Label color='green' horizontal>Ans | {data.answer.toUpperCase()}</Label> 
             <Label horizontal><Icon name='comments' /> 3</Label>
         </div>
-   
   }
 
   
@@ -57,10 +58,22 @@ export default withData(props => {
             </Grid.Column>
             <Grid.Column mobile={16} tablet={16} computer={10} >
                 <Container text>
-                    <Label color="blue"><Icon name='caret up' /> 23</Label>
-                    <Label color="red"><Icon name='caret down' /> 2</Label>
-                    <Header as="h2">Something is wrong with this question</Header>
+                    {/* <QuestionVote questionId={questionId} subject={subject} up={8} down={0}/>
+                    <Header as="h2">Something is wrong with this question</Header> */}
                     
+                    <Query query={GET_QUESTION_VOTES} variables={{questionId, subject}}>
+                        {({ loading, error, data }) => {
+                            if (data){
+                                let dataDetails = data.questionVotes;
+                                if(dataDetails == null){
+                                    return <QuestionVote questionId={questionId} subject={subject} up={0} down={0}/>
+                                }
+                                return <QuestionVote questionId={questionId} subject={subject} up={dataDetails.up_vote} down={dataDetails.down_vote}/>
+                            } 
+                        }}
+                    </Query> 
+                    <Header as="h2">Something is wrong with this question</Header>
+
                     <Query query={GET_QUESTION_BY_ID} variables={{questionId, subject}}>
                         {({ loading, error, data }) => {
                         if (loading) return <div>Fetching...</div>
@@ -77,9 +90,10 @@ export default withData(props => {
 
                     <Divider hidden />
                     <Divider hidden />
+
                     <AnswerList questionId={questionId} subject={subject}/>
-                    
                     <CommentForm questionId={questionId} subject={subject}/>
+
                     <Divider hidden />
                     <Divider hidden />
                 </Container>

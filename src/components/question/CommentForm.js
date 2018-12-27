@@ -11,19 +11,17 @@ export default class CommentForm extends React.Component {
     }
 
     doSubmit = async (doComment) => {
-      // console.log('dddd');
       const token = await localStorage.getItem('auth-token')
       if(!token){
         this.setState({error:true}), 
         this.setState({errorMessage: "Please Login to add comment"})
+      }else{
+        this.setState({loading:true}) 
+        const user = await localStorage.getItem('auth-id')
+        const {comment} = this.state
+        const {subject, questionId} = this.props
+        doComment({variables: {comment, user, subject,questionId}});
       }
-      this.setState({loading:true}) 
-      const user = await localStorage.getItem('auth-id')
-      const {comment} = this.state
-      const {subject, questionId} = this.props
-      // console.log(comment,user,subject, questionId)
-      doComment({variables: {comment, user, subject,questionId}});
-
     }
    
   
@@ -51,7 +49,6 @@ export default class CommentForm extends React.Component {
                 />
                  <Mutation
                       mutation={ADD_COMMENT}
-                      //variables={{ comment, user, subject,questionId }}
                       onCompleted={data => {
                          this.setState({error:false}), 
                          this.setState({loading:false}),
@@ -73,7 +70,7 @@ export default class CommentForm extends React.Component {
                             onClick={this.doSubmit.bind(this, doComment)}
                             />
                       )}
-                   </Mutation>
+                  </Mutation>
             </Form>
         </div>
       );
