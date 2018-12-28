@@ -6,7 +6,7 @@ import BestAnswers from '../src/components/BestAnswers'
 import HotQuestions from '../src/components/HotQuestions'
 import LeftSideMenu from '../src/components/LeftSideMenu'
 import TopMenuBar from '../src/components/TopMenuBar'
-import { GET_QUESTION_BY_ID } from '../src/graph/queries/questionById';
+import { GET_MQUESTION_BY_ID } from '../src/graph/queries/getMQuestionQuery';
 import { GET_QUESTION_VOTES } from '../src/graph/queries/getQuestionVoteQuery';
 import { Query } from 'react-apollo'
 import ReactHtmlParser from 'react-html-parser';
@@ -21,13 +21,13 @@ const loadQuestion = (data, subject) =>{
 
       return <div> 
             <p>{ReactHtmlParser(data.question)} </p>
-            <p>A| {data.option.a} </p>
-            <p>B| {data.option.b} </p>
-            <p>C| {data.option.c} </p>
-            <p>D| {data.option.d} </p>
+            {/* <p>A| {data.option_a} </p>
+            <p>B| {data.option_b} </p>
+            <p>C| {data.option_c} </p>
+            <p>D| {data.option.d} </p> */}
 
             <Label color={Color4Subject(subject)} horizontal>{subject}</Label> 
-            <Label color='green' horizontal>Ans | {data.answer.toUpperCase()}</Label> 
+            {/* <Label color='green' horizontal>Ans | {data.answer.toUpperCase()}</Label>  */}
             <Label horizontal><Icon name='comments' /> 3</Label>
         </div>
   }
@@ -37,7 +37,7 @@ export default withData(props => {
 
     const  questionId = props.url.query.id;
     const subject = props.url.query.subject;
-
+    console.log(questionId ,subject)
     return(
         <div>
         <HeaderFastQ titleText='Flagged'/>
@@ -61,7 +61,7 @@ export default withData(props => {
                     {/* <QuestionVote questionId={questionId} subject={subject} up={8} down={0}/>
                     <Header as="h2">Something is wrong with this question</Header> */}
                     
-                    <Query query={GET_QUESTION_VOTES} variables={{questionId, subject}}>
+                    <Query query={GET_QUESTION_VOTES} variables={{questionId,subject}}>
                         {({ loading, error, data }) => {
                             if (data){
                                 let dataDetails = data.questionVotes;
@@ -72,13 +72,13 @@ export default withData(props => {
                             } 
                         }}
                     </Query> 
-                    <Header as="h2">Something is wrong with this question</Header>
+                    <Header as="h2">Whoops! Something is wrong with this question</Header>
 
-                    <Query query={GET_QUESTION_BY_ID} variables={{questionId, subject}}>
+                    <Query query={GET_MQUESTION_BY_ID} variables={{questionId}}>
                         {({ loading, error, data }) => {
                         if (loading) return <div>Fetching...</div>
                         if (error) return <div>{error.message}</div>
-                        if (data) return <div>{loadQuestion(data.getQuestionById, subject)}</div>
+                        if (data) return <div>{loadQuestion(data.getMQuestionById, subject)}</div>
                         }}
                     </Query> 
 

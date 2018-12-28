@@ -4,12 +4,14 @@ import Link from "next/link";
 
 
 const TopQuestion = (props) => {
-  const {question,questionId,subject, subjectColor, maskURL} = props;
+  const {question,questionId,subject, subjectColor, maskURL, fresh} = props;
 
   return(
     <div>
       <p>
-      <Link as={`/q/${maskURL}/${questionId}/${subject}`} href={`/question?id=${questionId}&subject=${subject}`} ><a>{question}</a></Link>
+      {fresh?<Link as={`/mq/${maskURL}/${questionId}/${subject}`} href={`/m-question?id=${questionId}&subject=${subject}`} ><a>{question}</a></Link>
+            :<Link as={`/q/${maskURL}/${questionId}/${subject}`} href={`/question?id=${questionId}&subject=${subject}`} ><a>{question}</a></Link>
+      }
       </p>
       <Label color={subjectColor} horizontal>{subject}</Label>  
       <Label horizontal><Icon name='caret up' /> 23</Label>

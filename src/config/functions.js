@@ -2,6 +2,10 @@ export function UppperCaseFirst(str){
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+export function LowerCaseFirst(str){
+    return str.charAt(0).toLowerCase() + str.slice(1);
+}
+
 export function FormatStringAsURL(str){
     var  strSmallCase = str.charAt(0).toLowerCase() + str.slice(1);
     var truncatedStr =  strSmallCase.split(" ").splice(0,25).join(" ");

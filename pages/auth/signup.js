@@ -39,7 +39,7 @@ export default withData(props => {
           value = event.target.textContent;
           console.log('got else',value)
         }
-        console.log(value)
+        // console.log(value)
         //let newExtraInfo = Object.assign(this.state.extraInfo, { name: value })
         this.setState({ gender: value});
       }

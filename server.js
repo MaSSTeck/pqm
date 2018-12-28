@@ -16,6 +16,12 @@ app.prepare()
     app.render(req, res, actualPage, mergedQuery)
   })
 
+  server.get('/mq/:maskURL/:id/:subject', (req, res) => {
+    const actualPage = '/m-question'
+    const mergedQuery = Object.assign({}, req.query, req.params, req.param)
+    app.render(req, res, actualPage, mergedQuery)
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })

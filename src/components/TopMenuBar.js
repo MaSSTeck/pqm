@@ -17,7 +17,7 @@ const TopMenuBar = () => (
         <Container text>
             {/* <Menu.Item header>FastQ</Menu.Item> */}
             <Menu.Item as="a">Subject</Menu.Item>
-            <Menu.Item as="a">Quiz</Menu.Item>
+            <Menu.Item as="a" href="/fresh">Fresh</Menu.Item>
             <Menu.Item as="a" href="/ask-question">Ask</Menu.Item>
 
             <Menu.Menu position="right">
