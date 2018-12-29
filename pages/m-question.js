@@ -10,7 +10,7 @@ import { GET_MQUESTION_BY_ID } from '../src/graph/queries/getMQuestionQuery';
 import { GET_QUESTION_VOTES } from '../src/graph/queries/getQuestionVoteQuery';
 import { Query } from 'react-apollo'
 import ReactHtmlParser from 'react-html-parser';
-import { Color4Subject } from '../src/config/functions'
+import {LowerCaseFirst, Color4Subject } from '../src/config/functions'
 import { Mutation } from 'react-apollo'
 import CommentForm from '../src/components/question/CommentForm'
 import AnswerList from '../src/components/question/AnswerList'
@@ -36,8 +36,8 @@ const loadQuestion = (data, subject) =>{
 export default withData(props => {
 
     const  questionId = props.url.query.id;
-    const subject = props.url.query.subject;
-    console.log(questionId ,subject)
+    const subject = LowerCaseFirst(props.url.query.subject);
+    // console.log(questionId ,subject)
     return(
         <div>
         <HeaderFastQ titleText='Flagged'/>

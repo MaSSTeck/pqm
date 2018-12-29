@@ -17,12 +17,16 @@ const loadQuestion = (topQuestion) =>{
 
 
   return topQuestion.map(questions =>{
+   
     return <TopQuestion
             questionId={ReactHtmlParser(questions.id)} 
             question={ReactHtmlParser(questions.question)}
             subject={UppperCaseFirst(questions.subject)}
             subjectColor={Color4Subject(questions.subject)}
             maskURL = {FormatStringAsURL(questions.question)}
+            upVote ={questions.questionVote !=null?questions.questionVote.up_vote:0}
+            downVote ={questions.questionVote !=null?questions.questionVote.down_vote:0}
+            comment ={questions.comment !=null?questions.comment.length:0}
             fresh = {true}/>
     }
   );

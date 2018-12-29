@@ -4,7 +4,7 @@ import Link from "next/link";
 
 
 const TopQuestion = (props) => {
-  const {question,questionId,subject, subjectColor, maskURL, fresh} = props;
+  const {question,questionId,subject, subjectColor, maskURL, upVote,downVote,comment,fresh} = props;
 
   return(
     <div>
@@ -14,9 +14,9 @@ const TopQuestion = (props) => {
       }
       </p>
       <Label color={subjectColor} horizontal>{subject}</Label>  
-      <Label horizontal><Icon name='caret up' /> 23</Label>
-      <Label horizontal><Icon name='caret down' /> 2</Label>
-      <Label horizontal><Icon name='comments' /> 3</Label>
+      <Label horizontal><Icon name='caret up' /> {upVote}</Label>
+      <Label horizontal><Icon name='caret down' /> {downVote}</Label>
+      <Label horizontal><Icon name='comments' /> {comment}</Label>
 
       <div align="right">
         <Label pointing='right'>posted 3wks ago</Label>
